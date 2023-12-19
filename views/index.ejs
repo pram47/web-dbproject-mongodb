@@ -16,15 +16,11 @@
         <ul class="menu">
             <li><a href="#">My Favorite</a></li>
             <% if (loggedIn) { %>
-
-            <li><a href="/login" class="btn btn-sm btn-danger">Logout</a></li>
-            <% } %>
-        </ul>
-
-        <% if (!loggedIn) { %>
-            <li><a href="/signup">Sign up</a></li>
-            <li><a href="/login" class="btnLogin">Login</a></li>
-            
+                <li><a href="/profile" class="btn btn-sm btn-danger">Profile</a></li>
+                <li><a href="/logout" class="btn btn-sm btn-danger">Logout</a></li>
+            <% } else { %>
+                <li><a href="/signup">Sign up</a></li>
+                <li><a href="/login" class="btnLogin">Login</a></li>
             <% } %>
 
     </nav>

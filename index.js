@@ -5,6 +5,10 @@ const mongoose = require('mongoose')
 const expressSession = require('express-session')
 const flash = require('connect-flash')
 
+const bodyParser = require('body-parser'); // Add this line
+
+
+
 
 // MongoDB Connection
 mongoose.connect('mongodb+srv://pram47:19052547@cluster0.jc4zrsn.mongodb.net/?retryWrites=true&w=majority', {
@@ -25,14 +29,18 @@ const storeUserController = require('./controllers/storeUserController')
 const loginUserController = require('./controllers/loginUserController')
 const logoutController = require('./controllers/logoutController')
 const profileController = require('./controllers/profileController')
+const editController = require('./controllers/editController')
+const updateprofileController = require('./controllers/updateprofileController')
 
 //middleware
 const redirectIfAuth = require('./middleware/redirectIfAuth')
+const authMiddleware = require('./middleware/authMiddleware')
 
 app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(flash())
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressSession({
     secret: "node secret"
 }))
@@ -50,7 +58,10 @@ app.get('/signup',redirectIfAuth, signupController)
 app.post('/user/signup',redirectIfAuth, storeUserController)
 app.post('/user/login',redirectIfAuth, loginUserController)
 app.get('/logout', logoutController)
-app.get('/profile', profileController)
+app.get('/profile',authMiddleware, profileController)
+app.get('/edit',authMiddleware, editController)
+// app.post('/updateprofile/:id/:username',authMiddleware, updateprofileController)
+app.post('/updateprofile/:id/:username', authMiddleware, updateprofileController);
 
 
 app.listen(4000, () => {

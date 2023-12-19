@@ -1,0 +1,85 @@
+@import url('https://fonts.cdnfonts.com/css/poppins');
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+nav{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    padding: 20px 200px;
+    background: #162938;
+    display:flex;
+    justify-content: space-between;
+    z-index: 99;
+    height: 12%;
+    /* border:2px solid red; */
+}
+
+
+.logo a{
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
+    font-size: 2em;
+    
+}
+
+.banner{
+    display: flex;
+    justify-content:center;
+    border: 2px solid red;
+    margin: 10px 300px;
+    list-style:none;
+}
+.banner li{
+    padding-left: 20px;
+}
+
+.profile_img{
+    display: block;
+    margin: -350px auto 0px 50px;
+    /* margin-left: 50px;
+    margin-right: auto; */
+    width: 8%;
+}
+ul{
+    list-style: none;
+}
+ul li{
+    display: inline-block;
+    position: relative;
+}
+ul li a{
+    display: block;
+    padding:20px 25px;
+    color:white;
+    text-decoration: none;
+    text-align: center;
+}
+
+ul li ul.dropdown li{
+    display: block;
+}
+ul li ul.dropdown{
+    width: 100%;
+    background:#162938 ;
+    position: absolute;
+    z-index: 999;
+    display: none;
+}
+ul li a:hover{
+    background:#162938 ;
+}
+ul li:hover ul.dropdown{
+    display: block;
+}
