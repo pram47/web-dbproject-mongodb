@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/main.css" rel="stylesheet">
+    <script src="javas/slide.js"></script>
+    <title>x8</title>
+    
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="main.html">MySite</a>
+        </div>
+        <ul class="menu">
+            <li><a href="#">My Favorite</a></li>
+            <% if (loggedIn) { %>
+
+            <li><a href="/login" class="btn btn-sm btn-danger">Logout</a></li>
+            <% } %>
+        </ul>
+
+        <% if (!loggedIn) { %>
+            <li><a href="/signup">Sign up</a></li>
+            <li><a href="/login" class="btnLogin">Login</a></li>
+            
+            <% } %>
+
+    </nav>
+    
+    <!-- Nav Section Start -->
+
+    <!-- Nav Section -->
+
+    <!-- Banner Start-->
+
+    <div class="filter-wrapper">
+      <div id="search-container">
+        <input
+          type="search"
+          id="search-input"
+          placeholder="Search product name here.."
+        />
+        <button id="search">Search</button>
+      </div>
+      <div id="buttons">
+        <button class="button-value" onclick="filterProduct('Action and Adventure Games')">
+          Action and Adventure Games
+        </button>
+        <button class="button-value" onclick="filterProduct('Driving')">
+            Driving
+        </button>
+        <button class="button-value" onclick="filterProduct('Fighting')">
+            Fighting
+        </button>
+        <button class="button-value" onclick="filterProduct('For girls')">
+        For girls
+        </button>
+        <button class="button-value" onclick="filterProduct('Shooting')">
+        Shooting
+        </button>
+        <button class="button-value" onclick="filterProduct('Sports')">
+        Sports
+        </button>
+        <button class="button-value" onclick="filterProduct('Other')">
+        Other
+        </button>
+        </div>
+    </div>
+
+    <!-- Banner End -->
+    <!-- What's new -->
+    
+    <h1 class="heading">What's new</h1>
+    
+    <section class="slide-card">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide swiper-slide--one">
+                    <span>New</span>
+                    <div>
+                        <p class="des"><i class="fas fa-india-rupee-sign"></i>Game Name</p>
+                    </div>
+                </div>
+                <!-- Repeat this structure for each game -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- What's new -->
+    <!-- Add game information -->
+    <section class="games">
+        <h1 class="heading">All Games</h1>
+        <div class="wrapper">
+            <div class="cols">
+                <div class="col" ontouchstart="this.classList.toggle('hover');">
+                    <a href="gameplay.html">
+                        <div class="container">
+                            <div class="front">
+                                <form action="" method="POST">
+                                    <img src="path/to/your/image.jpg" class="Gameimage" alt="">
+                                    <div class="inner">
+                                        <span>
+                                            <div class="creator_icon">
+                                                <img src="" alt="">
+                                            </div>
+                                            <div class="game-name">
+                                                <p class="des"><i class="fas fa-india-rupee-sign"></i>Game Name</p>
+                                            </div>
+                                            <div class="rate">
+                                                <p>ratings</p>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="back">
+                                <div class="inner">
+                                    <p>Game Description</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Add game information -->       
+    <script>
+        var swiper = new Swiper(".swiper", {
+            effect: "coverflow",
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: "auto",
+            coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 100,
+                modifier: 2,
+                slideShadows: true
+            },
+            spaceBetween: 60,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true
+            }
+        });
+    </script>  
+</body>
+</html>
