@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const expressSession = require('express-session')
 const flash = require('connect-flash')
 
-const bodyParser = require('body-parser'); // Add this line
+
 
 
 
@@ -40,7 +40,7 @@ app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use(flash())
-app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(expressSession({
     secret: "node secret"
 }))
@@ -61,7 +61,7 @@ app.get('/logout', logoutController)
 app.get('/profile',authMiddleware, profileController)
 app.get('/edit',authMiddleware, editController)
 // app.post('/updateprofile/:id/:username',authMiddleware, updateprofileController)
-app.post('/updateprofile/:id/:username', authMiddleware, updateprofileController);
+app.post('/updateprofile/:id', authMiddleware, updateprofileController);
 
 
 app.listen(4000, () => {

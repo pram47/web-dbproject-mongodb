@@ -12,26 +12,25 @@
 <body>
     <header>
         <nav>
-    
             <div class="logo">
-                <a href="/">MySite</a>
+                <a href="/">z8</a>
             </div>
-            
-            <ul>
-                <li><a href="myfav.php">My Favorite</a></li>
-                <li>
-                    <a href="/profile">Profile</a>
-                        <ul class="dropdown">
-                            <li><a href="upload.php">Upload</a></li>
-                            <li><a href="/logout">Logout</a></a></li>
-                        </ul>
-                    </li>
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <% if (loggedIn) { %>
+                    <li><a href="/profile" class="btn btn-sm btn-danger">Profile</a></li>
+                    <li><a href="/logout" class="btn btn-sm btn-danger">Logout</a></li>
+                <% } else { %>
+                    <li><a href="/signup">Sign up</a></li>
+                    <li class="btnLogin"><a href="/login">Login</a></li>
+                <% } %>
             </ul>
-    </nav>
+        </nav>
     </header>
 
     <!-- Your session-related PHP code is removed since HTML doesn't handle server-side logic -->
-
+    <div class="bodyform">
     <table class="table">
         <thead>
             <tr>
@@ -53,5 +52,6 @@
             </tr>
         </tbody>
     </table>
+</div>
 </body>
 </html>

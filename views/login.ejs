@@ -8,20 +8,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <header>
-        <!-- Nav Section Start -->
-        <nav>
-            <div class="logo">
-                <a href="#">MySite</a>
-            </div>
-            <ul class="menu">
-                <li><a href="#">My Favorite</a></li>
+    <nav>
+        <div class="logo">
+            <a href="/">z8</a>
+        </div>
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About</a></li>
+            <% if (loggedIn) { %>
+                <li><a href="/profile" class="btn btn-sm btn-danger">Profile</a></li>
+                <li><a href="/logout" class="btn btn-sm btn-danger">Logout</a></li>
+            <% } else { %>
                 <li><a href="/signup">Sign up</a></li>
-                <a href="/login"><li><button class="btnLogin">Login</button></li></a>
-            </ul>
-        </nav>
-        <!-- Nav Section -->
-    </header>
+                <li class="btnLogin"><a href="/login">Login</a></li>
+            <% } %>
+        </ul>
+    </nav>
     
     <!-- Link Register -->
     <!-- <div class="login-register">
@@ -30,6 +32,7 @@
     </div> -->
 
     <!-- Link Register -->
+    <div class="bodyform">
     <div class="form" id="signupForm">
         <h2>Sign in</h2>
         <div class="form-box">
@@ -52,11 +55,14 @@
                     <label for="">Password</label>
                 </div>
                 <button type="submit" name="signin" class="btnSignin">Sign in</button>
-                <p>don't have an account yet? click here to <a href="log-sig.html">sign up</a></p>
+                <p>don't have an account yet? click here to <a href="/signup">sign up</a></p>
             </form>
+            
         </div>
-    </div>
 
+    </div>
+    </div>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var alertType = ""; // PHP part removed, set this as needed
@@ -71,5 +77,6 @@
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
 </body>
 </html>

@@ -17,16 +17,19 @@
     <div class="container mt-5">
         <h1>Edit Data</h1>
         <hr>
-        <form action="/updateprofile/<%= UserData._id %>/<%= encodeURIComponent(UserData.username) %>" method="post" enctype="multipart/form-data">
+        <form action="/updateprofile/<%= UserData.id %>" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <input type="hidden" name="id" value="<%= UserData._id %>">
-                <label for="username" class="col-form-label"></label>
+                <label for="username" class="col-form-label">Username:</label>
                 <input type="text" value="<%= UserData.username %>" required class="form-control" name="username">
             </div>
             <hr>
             <a href="/profile" class="btn btn-secondary">Go Back</a>
             <button type="submit" name="update" class="btn btn-primary">Update</button>
         </form>
+        
+        
+        
     </div>
 </body>
 </html>
